@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Captcha Test</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon (1).ico">
+
+  <!-- CSS-bestanden -->
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="css.nc.css">
+</head>
+<body>
+
+  <!-- Naam invoerveld -->
+  <div class="naam-invoer">
+    <label for="naam">Voer je naam in:</label>
+    <input type="text" id="naam" placeholder="Bijv. Sanne Jansen">
+    <button onclick="startCaptcha()">Start verificatie</button>
+  </div>
+
+  <div class="container">
+    <div class="captcha-box">
+      <img src="bovenij.logo.png" alt="Logo BovenIJ" class="logo">
+      <h1>Beveiligingscontrole</h1>
+
+      <!-- Captcha knop, start verborgen -->
+      <div id="captchaCheck" class="checkbox-btn" style="display: none;">
+        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" class="google-icon" alt="Google logo">
+      </div>
+
+      <div id="spinner" class="loading-spinner"></div>
+    </div>
+  </div>
+
+  <!-- Modaal venster -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeBtn" class="close-btn">&times;</span>
+      <p>De link is gekopieerd naar het klembord. Je kunt hem nu gebruiken.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript-bestanden -->
+  <script src="js.js"></script>
+  <script src="js2.js"></script>
+</body>
+</html>
