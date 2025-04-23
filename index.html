@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Captcha Test</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="favicon (1).ico">
+
+  <!-- Snel en clean: interne CSS -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #fff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .naam-invoer {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .naam-invoer input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+
+    .naam-invoer button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #d4406a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .naam-invoer button:hover {
+      background-color: #d4406a;
+    }
+
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .captcha-box {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .checkbox-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkbox-btn:hover {
+      background-color: #f1f1f1;
+    }
+
+    .google-icon {
+      height: 20px;
+    }
+
+    .loading-spinner {
+      display: none;
+      margin-top: 20px;
+      width: 25px;
+      height: 25px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #f4bace;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 30px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .close-btn {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="naam-invoer">
+    <label for="naam">Voer je naam in:</label><br><br>
+    <input type="text" id="naam" placeholder="Bijv. Sanne Jansen">
+    <button onclick="startCaptcha()">Start verificatie</button>
+  </div>
+
+  <div class="container">
+    <div class="captcha-box">
+      <img src="bovenij.logo.png" alt="Logo BovenIJ" class="logo">
+      <h1>Beveiligingscontrole</h1>
+
+      <div id="captchaCheck" class="checkbox-btn" style="display: none;">
+        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" class="google-icon" alt="Google logo">
+      </div>
+
+      <div id="spinner" class="loading-spinner"></div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeBtn" class="close-btn">&times;</span>
+      <p>
+        🛑 <strong>Let op:</strong> dit was een gesimuleerde aanval.<br><br>
+        Je hebt je naam ingevuld en op een captcha geklikt die nep was.<br>
+        In een echte situatie had een hacker nu jouw identiteit kunnen misbruiken of toegang kunnen krijgen tot interne systemen.<br><br>
+        ✅ Gelukkig was dit een test. Wees in het echt altijd alert met onbekende knoppen, prompts of links.<br><br>
+        📩 <strong>Bij twijfel, neem contact op met:</strong><br>
+        <a href="mailto:ICT@zgvlaardingen.nl">ICT@zgvlaardingen.nl</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- JavaScript-bestanden -->
+  <script src="js.js"></script>
+  <script src="js2.js"></script>
+</body>
+</html>
